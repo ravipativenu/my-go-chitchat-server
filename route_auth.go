@@ -1,9 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
-	"github.com/ravipativenu/go-chitchat-server/tree/master/data"
+	"github.com/ravipativenu/go-chitchat-server/data"
 )
 
 // GET /login
@@ -16,12 +17,14 @@ func login(writer http.ResponseWriter, request *http.Request) {
 // GET /signup
 // Show the signup page
 func signup(writer http.ResponseWriter, request *http.Request) {
+	fmt.Println("signup...")
 	generateHTML(writer, nil, "login.layout", "public.navbar", "signup")
 }
 
 // POST /signup
 // Create the user account
 func signupAccount(writer http.ResponseWriter, request *http.Request) {
+	fmt.Println("signupAccount...")
 	err := request.ParseForm()
 	if err != nil {
 		danger(err, "Cannot parse form")
@@ -31,6 +34,9 @@ func signupAccount(writer http.ResponseWriter, request *http.Request) {
 		Email:    request.PostFormValue("email"),
 		Password: request.PostFormValue("password"),
 	}
+	fmt.Println("user")
+	fmt.Println(user)
+	fmt.Println(user.Create())
 	if err := user.Create(); err != nil {
 		danger(err, "Cannot create user")
 	}

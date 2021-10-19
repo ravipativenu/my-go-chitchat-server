@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/ravipativenu/go-chitchat-server/tree/master/data"
+	"github.com/ravipativenu/go-chitchat-server/data"
 )
 
 // GET /err?msg=
