@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/ravipativenu/go-chitchat-server/data"
+	"github.com/ravipativenu/my-go-chitchat-server/data"
 )
 
 // GET /login
@@ -36,7 +36,7 @@ func signupAccount(writer http.ResponseWriter, request *http.Request) {
 	}
 	fmt.Println("user")
 	fmt.Println(user)
-	fmt.Println(user.Create())
+	fmt.Println("Go to next function...")
 	if err := user.Create(); err != nil {
 		danger(err, "Cannot create user")
 	}

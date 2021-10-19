@@ -6,19 +6,42 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"os"
 
+	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
 var Db *sql.DB
 
 func init() {
+	fmt.Println("init...")
 	var err error
-	Db, err = sql.Open("postgres", "dbname=chitchat sslmode=disable")
+
+	// load .env file
+	err := godotenv.Load(".env")
+
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+
+	hostname := goDotEnvVariable("host")
+	host_port := goDotEnvVariable("port")
+	username := goDotEnvVariable("user")
+	password := goDotEnvVariable("pwd")
+	database_name := goDotEnvVariable("dbname")
+
+	psqlString := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", hostname, host_port, username, password, database_name)
+	fmt.Println(psqlString)
+	Db, err = sql.Open("postgres", psqlString)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return
+}
+
+func goDotEnvVariable(key string) string {
+	return os.Getenv(key)
 }
 
 // create a random UUID with from RFC 4122

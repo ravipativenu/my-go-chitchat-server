@@ -5,3 +5,7 @@ ERROR 2021/10/18 20:18:14 utils.go:101: pq: password authentication failed for u
 ERROR 2021/10/18 20:20:20 utils.go:101: pq: password authentication failed for user "VENU" Cannot create user
 ERROR 2021/10/18 20:22:38 utils.go:101: pq: password authentication failed for user "VENU" Cannot create user
 ERROR 2021/10/18 20:25:24 utils.go:101: pq: password authentication failed for user "VENU" Cannot create user
+ERROR 2021/10/19 09:25:00 utils.go:101: pq: password authentication failed for user "VENU" Cannot create user
+ERROR 2021/10/19 09:26:41 utils.go:101: pq: password authentication failed for user "VENU" Cannot create user
+ERROR 2021/10/19 09:30:16 utils.go:101: pq: password authentication failed for user "VENU" Cannot create user
+ERROR 2021/10/19 09:35:12 utils.go:101: pq: password authentication failed for user "VENU" Cannot create user
